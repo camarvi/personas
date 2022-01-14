@@ -1,0 +1,40 @@
+
+<div class="mt-2" id="htmlData">
+    <table  *ngIf="personas.length > 0"  class="table table-bordered table-striped">
+        <thead class="thead-primary">
+        <!--  <tr class="d-flex"> -->
+          <tr class="table-primary">    
+            <th scope="col">F Alta</th>
+            <th scope="col">Nif</th>
+            <th scope="col">Ap1</th>
+            <th scope="col">Ap2</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tlf</th>
+            <th scope="col"></th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas">
+            <td >{{ persona.FECHA_ALTA | date:'dd/MM/yyyy' }}</td>  
+            <td >{{ persona.NIF }}</td>
+            <td >{{ persona.APE1 }}</td>
+            <td >{{ persona.APE2 }}</td>
+            <td >{{ persona.NOMBRE }}</td>   
+            <td >{{ persona.TLF }}</td>
+            <td>
+
+              <button class="btn btn-info mr-1" [routerLink]="['/nuevousuario', persona.IDPERSONA]" title="Editar">
+                 <i class="fa fa-pen"></i>
+              </button>
+
+              <button class="btn btn-danger" [routerLink]="['/autorizados', persona.IDPERSONA]" title="Autorizados">
+                  <i class="fas fa-street-view"></i>
+             </button>
+          </td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
+ 
+  
